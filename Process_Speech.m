@@ -4,8 +4,8 @@ close all
 % y = record_sample(Fs, record_time);
 % L = length(y);
 
-names = {'Gavin','Gunj','Weird1'};
-num_samples = [16, 7, 16];
+names = {'Gavin','Gunj','Weird1','Avery'};
+num_samples = [16, 7, 16, 12];
 mfcc_full = [];
 %% Load data
 % name = input('Type your name\n','s');
@@ -13,7 +13,7 @@ mfcc_full = [];
 % filename = input('Type the name of the wav file to be read\n','s');
 for n = 1:length(names)
     for i = 1:num_samples(n)
-        filename = ['C:\Users\gavin\OneDrive\Documents\Speech Recog Project\Samples\' names{n} '-' num2str(i) '.wav'];
+        filename = ['C:\Users\gavin\Documents\Voice_Recognition\Samples\' names{n} '-' num2str(i) '.wav'];
         mfcc = MFCC(filename);
         labels = n*ones(1,size(mfcc,2));
         mfcc_labeled = [mfcc; labels];
