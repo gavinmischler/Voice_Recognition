@@ -4,8 +4,8 @@ close all
 % y = record_sample(Fs, record_time);
 % L = length(y);
 
-names = {'Gavin','Gunj','Weird1','Avery'};
-num_samples = [16, 7, 16, 12];
+names = {'Gavin','Gunj','Weird1','Avery','Luis'};
+num_samples = [12, 7, 12, 10, 8];
 mfcc_full = [];
 %% Load data
 % name = input('Type your name\n','s');
@@ -19,13 +19,13 @@ for n = 1:length(names)
         mfcc_labeled = [mfcc; labels];
         mfcc_full = [mfcc_full, mfcc_labeled];
         z = mean(mfcc,2);
-        figure()
-        plot(mfcc)
+%         figure()
+%         plot(mfcc)
         
     end
 end
 
-VQ = vqlbg(mfcc_full, 16); %Vector quantization centroids
+VQ = vqlbg(mfcc_full, 10); %Vector quantization centroids
 m = mfcc_full';
 
 % for i = 1:num_samples(1)
