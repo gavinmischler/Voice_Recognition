@@ -20,7 +20,7 @@ N = floor(Fs*.05); % N is number of samples in 50 milliseconds
 freq = [32 64 128 256 512 1024 2048];
 [~, idx] = min(abs(freq-N)); 
 N = freq(idx); % Set N to be the nearest power of two 
-M = floor(N/3);
+M = floor(N/3); % M controls how much overlap there is between frames
 frames = enframe(y,N,M);
 h_window = hamming(N); % Calculate hamming window for size N
 
@@ -28,7 +28,7 @@ h_window = hamming(N); % Calculate hamming window for size N
 FT = fft(frames.*h_window); % Apply the window to the frame and transform it
 %
 L2 = size(FT,2);
-for_plot = abs(FT(1:L2/2+1, 60));
+%for_plot = abs(FT(1:L2/2+1, 60));
 f2 = Fs*(0:(L2/2))/L2;
 % figure()
 % plot(f2, for_plot);

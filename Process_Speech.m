@@ -5,8 +5,10 @@ close all
 % L = length(y);
 
 names = {'Gavin','Gunj','Weird1','Avery','Luis'};
-num_samples = [12, 7, 12, 10, 8];
+num_samples = [13, 6, 13, 9, 8];
 mfcc_full = [];
+VQ = [];
+centroids_per = 8;
 %% Load data
 % name = input('Type your name\n','s');
 % num_samples = input('Number of samples to sweep through: ');
@@ -21,11 +23,12 @@ for n = 1:length(names)
         z = mean(mfcc,2);
 %         figure()
 %         plot(mfcc)
-        
     end
+    
+    VQ = [VQ, vqlbg(mfcc_full(1:end-1,:),centroids_per)];
 end
 
-VQ = vqlbg(mfcc_full, 10); %Vector quantization centroids
+%VQ = vqlbg(mfcc_full, 10); %Vector quantization centroids
 m = mfcc_full';
 
 % for i = 1:num_samples(1)
