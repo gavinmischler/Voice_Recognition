@@ -3,7 +3,11 @@
 Fs = 22050;
 L = 4;
 names = {'Gavin','Gunj','Weird1','Avery','Luis'};
+num_samples = [13, 6, 13, 9, 8];
+centroids_per = 8;
 mins = [];
+
+VQ = Process_Speech(num_samples, centroids_per);
 
 while(1)
     choice = input('Do you want to test a\n  1. recording you make now\n  2. previously-recorded sample\n Or:\n  3. Quit\n');
