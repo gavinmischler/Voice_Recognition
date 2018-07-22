@@ -21,8 +21,4 @@ while(1)
     count_matches(mins,names);    
     person = names{ID};
     disp(['You are ' person newline]);
-%     quit = input('Enter q to quit\n','s');
-%     if strcmp(quit,'q')
-%         break;
-%     end
 end
